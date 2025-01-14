@@ -16,7 +16,6 @@ background = "#171a21"
 dim_foreground = "#292e37"
 
 [window]
-
 dimensions = { columns = 135, lines = 35 }
 position = { x = 550, y = 200 }
 padding = { x = 1, y = 1 }
@@ -25,12 +24,10 @@ decorations_theme_variant = "none"
 startup_mode = "Windowed"
 
 [scrolling]
-
 history = 1000
 multiplier = 5
 
 [font]
-
 normal = { family = "Lucida Console", style = "Regular" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
@@ -40,12 +37,10 @@ size = 9.0
 builtin_box_drawing = true
 
 [selection]
-
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [keyboard]
-
 bindings = [
 { key = "N", mods = "Control", action = "CreateNewWindow" },
 { key = "H", mods = "Control", action = "Hide" },
@@ -56,7 +51,6 @@ bindings = [
 ]
 
 [mouse]
-
 bindings = [
 { mouse = "Right", mods = "Control", action = "Paste" },
 { mouse = "Middle", mods = "Control", action = "Copy" },
