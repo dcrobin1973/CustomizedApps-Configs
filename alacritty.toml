@@ -8,6 +8,9 @@ general.live_config_reload = true
 [terminal.shell]
 program = "pwsh.exe"
 args = ["-NoLogo", "-NoProfile"]
+#[terminal.shell]
+#program = "wsl.exe"
+#args = ["", ""]
 
 [colors]
 [colors.primary]
