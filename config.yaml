@@ -44,13 +44,14 @@ bars:
         "bluetooth",
         "wifi",
         "media",
+        "apps",
       ]
       center: [
         "clock",
         "weather",
       ]
       right: [
-        "taskbar",
+        "traffic",
         "cpu",
         "memory",
         "komorebi_workspaces",
@@ -60,14 +61,14 @@ widgets:
   home:
     type: "yasb.home.HomeWidget"
     options:
-      label: "<span>\udb81\udf17</span>"
+      label: "<span>\ue70f</span>"
       menu_list:
       - { title: "User Home", path: "~" }
       - { title: "Download", path: "~\\Downloads" }
       - { title: "Documents", path: "~\\Documents" }
       - { title: "Pictures", path: "~\\Pictures" }
       system_menu: true
-      power_menu: true
+      power_menu: false
       blur: true
   media:
     type: "yasb.media.MediaWidget"
@@ -75,39 +76,26 @@ widgets:
       label: "{title}"
       label_alt: "{artist}"
       max_field_size:
-        label: 64
-        label_alt: 24
+        label: 120
+        label_alt: 64
       show_thumbnail: true
       controls_only: false
-      controls_left: false
+      controls_left: true
       hide_empty: true
       thumbnail_alpha: 150
       thumbnail_padding: 8
       thumbnail_corner_radius: 0
       icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
-  active_window:
-    type: "yasb.active_window.ActiveWindowWidget"
-    options:
-      label: "{win[title]}"
-      label_alt: "[class_name='{win[class_name]}' exe='{win[process][name]}' hwnd={win[hwnd]}]"
-      label_no_window: ""
-      label_icon: true
-      label_icon_size: 14
-      max_length: 56
-      max_length_ellipsis: "..."
-      monitor_exclusive: false
+        prev_track: "\uf048"
+        next_track: "\uf051"
+        play: "\uf04b"
+        pause: "\uf04c"
   clock:
     type: "yasb.clock.ClockWidget"
     options:
       label: "{%I:%M:%S %p | %A, %B %d, %Y}"
       label_alt: "{%I:%M:%S %p | %A, %B %d, %Y}"
       timezones: []
-      #callbacks:
-        #on_left: "toggle_label"
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -204,7 +192,7 @@ widgets:
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
     options:
-      label: "<span>{icon}</span>"
+      label: "\uf293"
       label_alt: "{device_name}"
       icons: 
         bluetooth_on: "\udb80\udcaf"
@@ -218,8 +206,8 @@ widgets:
       label: "<span>{icon}</span> {level}"
       label_alt: "<span>{icon}</span> {level}%"
       icons:
-        normal: "\udb80\udf6c"
-        muted: "\udb80\udf6d"
+        normal: "\uec1c"
+        muted: "\uec12"
       callbacks:
         on_left: "toggle_mute"
         on_middle: "toggle_label"
@@ -241,22 +229,6 @@ widgets:
       "\udb82\udd25",  # Icon for 41-80% strength
       "\udb82\udd28"   # Icon for 81-100% strength
     ]
-  power_menu:
-    type: "yasb.power_menu.PowerMenuWidget"
-    options:
-      label: "\uf011"
-      uptime: True
-      blur: False
-      blur_background: True
-      animation_duration: 200
-      button_row: 5
-      buttons:
-        shutdown: ["\uf011", "Shut Down"]
-        restart: ["\uead2", "Restart"]
-        signout: ["\udb80\udf43", "Sign out"]
-        sleep: ["\u23fe", "Sleep"]
-        
-        cancel: ["", "Cancel"]
   apps:
     type: "yasb.applications.ApplicationsWidget"
     options:
@@ -267,9 +239,9 @@ widgets:
         right: 8
       label: "{data}"
       app_list:
-        - { icon: "\uf422", launch: "search" }
-        - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
-        - { icon: "\udb80\ude39",launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" }
+        - { icon: "\uebc7", launch: "alacritty.exe" }
+        - { icon: "\uf370", launch: "thunderbird.exe" }
+        - { icon: "\uf268",launch: "arc.exe" }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
@@ -319,4 +291,13 @@ widgets:
       memory_thresholds:
         low: 25
         medium: 50
-        high: 90      
+        high: 90
+  traffic:
+    type: "yasb.traffic.TrafficWidget"
+    options:
+      label: "\udb80\udc02 \ueab4 {download_speed} | \ueab7 {upload_speed}"
+      label_alt: "Download {download_speed} | Upload {upload_speed}"
+      update_interval: 1000
+      callbacks:
+        on_left: "toggle_label"
+        on_right: "exec cmd /c Taskmgr"  
