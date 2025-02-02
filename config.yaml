@@ -239,9 +239,10 @@ widgets:
         right: 8
       label: "{data}"
       app_list:
+      # replace with your user name "#username#" #
         - { icon: "\uebc7", launch: "alacritty.exe" }
-        - { icon: "\ue8da", launch: "C:\\Users\\dcrob\\AppData\\Local\\Programs\\Microsoft VS Code\\code.exe" }
-        - { icon: "\ue709", launch: "C:\\Users\\dcrob\\AppData\\Local\\GitHubDesktop\\githubdesktop.exe" }
+        - { icon: "\ue8da", launch: "C:\\Users\\#Username#\\AppData\\Local\\Programs\\Microsoft VS Code\\code.exe" }
+        - { icon: "\ue709", launch: "C:\\Users\\#username#\\AppData\\Local\\GitHubDesktop\\githubdesktop.exe" }
         - { icon: "\uf370", launch: "thunderbird.exe" }
         - { icon: "\uf268",launch: "arc.exe" }
         - { icon: "\ued29", launch: "C:\\Program Files (x86)\\Steam\\steam.exe" }
